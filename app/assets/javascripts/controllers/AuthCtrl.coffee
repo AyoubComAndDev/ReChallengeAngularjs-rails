@@ -5,6 +5,7 @@
     console.log 'res user json', res
     $scope.user = res
     if res.data.data?
+      $window.localStorage.setItem("currentUser", angular.toJson(res.data.data))
       if res.data.data.role is "user"
         $location.path '/UserHome'
       else

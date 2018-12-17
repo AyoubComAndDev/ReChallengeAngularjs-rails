@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
       render json: {status: 'SUCCESS',message: 'GetLoggedUserInfo',data: @user},status: :ok
     end
 
-    #def not_found
-    #  render json: {page: 'not found !'}
-    #end
+    def not_found
+    render json: {page: 'not found !'}
+    end
 end

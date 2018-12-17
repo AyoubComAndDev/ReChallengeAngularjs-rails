@@ -1,12 +1,12 @@
 
 
-/*
+
 app.controller("myController2",function($scope,$http){
     $scope.users=[];
     $scope.idModelAdminSend='';
     $scope.showPagination=true;
     $http({
-        method: 'get', 
+        method: 'get',
         url: 'http://localhost:3000/api/v1/usersj'
     }).then(function (response) {
         console.log(response.data.data, 'Users');
@@ -18,7 +18,7 @@ app.controller("myController2",function($scope,$http){
     $scope.demandesT=[];
     $scope.demandesNonT=[];
     $http({
-        method: 'get', 
+        method: 'get',
         url: 'http://localhost:3000/getDemandeT'
     }).then(function (response) {
         console.log(response.data, 'getdemandesNonT');
@@ -26,9 +26,9 @@ app.controller("myController2",function($scope,$http){
     },function (error){
         console.log(error, 'can not get getdemandesNonT.');
     });
-    
+
     $http({
-        method: 'get', 
+        method: 'get',
         url: 'http://localhost:3000/getDemandeNonT'
     }).then(function (response) {
         console.log(response.data, 'getDemandeT');
@@ -51,7 +51,7 @@ app.controller("myController2",function($scope,$http){
         console.log('RES F!',resF);
         var Indata = {etat :'Accepté',user_id:user_id,sole:resF};
         $http({
-            method: 'post', 
+            method: 'post',
             url: 'http://localhost:3000/updateOK/'+id,
             headers: {'Content-Type': 'application/json'},
             params: Indata
@@ -59,7 +59,7 @@ app.controller("myController2",function($scope,$http){
             $scope.demandesNonT = response.data.data;
             $scope.showMsg2=true;
             $http({
-                method: 'get', 
+                method: 'get',
                 url: 'http://localhost:3000/getDemandeNonT'
             }).then(function (response) {
                 console.log(response, 'getDemandeNONT');
@@ -74,7 +74,7 @@ app.controller("myController2",function($scope,$http){
     $scope.sendReject=function(event){
         var Indata = {'motifR':$scope.motifR, etat :'Réfusé'}
         $http({
-            method: 'post', 
+            method: 'post',
             url: 'http://localhost:3000/updateNO/'+$scope.idModelAdminSend,
             headers: {'Content-Type': 'application/json'},
             params: Indata
@@ -84,7 +84,7 @@ app.controller("myController2",function($scope,$http){
             console.log($scope.demandesNonT ,'here demandesNonT !')
             $scope.showMsg2=true;
             $http({
-                method: 'get', 
+                method: 'get',
                 url: 'http://localhost:3000/getDemandeNonT'
             }).then(function (response) {
                 console.log(response, 'getDemandeNONT');
@@ -96,13 +96,13 @@ app.controller("myController2",function($scope,$http){
             console.log(error, 'can not get decision accept .');
         });
     };
-    
+
     $scope.find=function(){
         if($scope.motCle==undefined){
             $scope.motCle='';
         }
         $http({
-            method: 'get', 
+            method: 'get',
             url: 'http://localhost:3000/search/'+$scope.motCle
         }).then(function (response) {
             console.log(response.data, 'getdemandesNonT');
@@ -119,7 +119,7 @@ app.controller("myController2",function($scope,$http){
     $scope.sendModel=function(id){
         $scope.myModel2=[];
     $http({
-        method: 'get', 
+        method: 'get',
         url: 'http://localhost:3000/myModelUser/'+id
     }).then(function (response) {
         $scope.myModel2 = response.data.data;
@@ -133,7 +133,7 @@ app.controller("myController",function($scope,$http){
     $scope.sendModel=function(id){
         $scope.myModel=[];
     $http({
-        method: 'get', 
+        method: 'get',
         url: 'http://localhost:3000/myModelUser/'+id
     }).then(function (response) {
         console.log(response.data.data, 'model');
@@ -144,14 +144,14 @@ app.controller("myController",function($scope,$http){
     };
     $scope.user=null;
     $http({
-        method: 'get', 
+        method: 'get',
         url: 'http://localhost:3000/getUser'
     }).then(function (response) {
         console.log(response.data.data, 'User');
         $scope.user = response.data.data;
         $scope.conge=[];
     $http({
-        method: 'get', 
+        method: 'get',
         url: 'http://localhost:3000/getCongesDemande/'+$scope.user.id
     }).then(function (response) {
         console.log(response.data, 'congeDemande');
@@ -162,15 +162,15 @@ app.controller("myController",function($scope,$http){
     },function (error){
         console.log(error, 'can not get data.');
     });
-    
-    
+
+
 
     $scope.sendDemande=function(){
         $scope.showMsg=false;
         if(angular.isUndefined($scope.dateF) || $scope.dateF === null)return;
         var Indata = {'user_id':$scope.user.id,'date_debut':$scope.dateD,'date_fin':$scope.dateF, 'motifAb':$scope.motifAb}
         $http({
-            method: 'post', 
+            method: 'post',
             url: 'http://localhost:3000/api/v1/usersj',
             headers: {'Content-Type': 'application/json'},
             params: Indata
@@ -182,4 +182,4 @@ app.controller("myController",function($scope,$http){
             console.log(error, 'can not save demand !.');
         });
     };
-});*/
+});
